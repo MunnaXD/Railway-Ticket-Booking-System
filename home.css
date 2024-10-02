@@ -73,21 +73,28 @@ nav ul li .btn-signin:hover, .btn-register:hover {
 .content {
     position: relative;
     z-index: 2;
-    text-align: left;
-    color: #E9D8A6;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
+    padding-left: 50px;
     padding-right: 50px;
 }
 
-h1 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    text-align: center;
+.text-content {
+    color: #E9D8A6;
+    margin-top: 0px;
+    text-align: left;
+    max-width: 600px; /* Adjust width for the text block */
 }
 
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+/* Form styles */
 .form-container {
     background-color: #001219;
     border-radius: 12px;
@@ -122,7 +129,11 @@ input, select {
     color: white;
 }
 
-input[type="date"], input[type="number"], select {
+input[type="text"]::placeholder, input[type="date"]::placeholder {
+    color: #94D2BD; /* Brighter placeholder color for better visibility */
+}
+
+input[type="date"], select {
     padding: 10px;
 }
 
