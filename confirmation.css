@@ -1,0 +1,174 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-image: url('train2.jpg'); /* Background image */
+    background-size: cover; /* Cover entire background */
+    background-repeat: no-repeat; /* Prevent background repeat */
+    color: #001219; /* Dark text color */
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Header Styles */
+.main-header {
+    background-color: rgba(0, 18, 25, 0.7); /* Semi-transparent dark header background */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    z-index: 3;
+}
+
+.logo h2 {
+    color: #E9D8A6; /* Light logo color */
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #E9D8A6; /* Light text color for links */
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li .btn-signin, .btn-register {
+    padding: 8px 16px;
+    background-color: #0A9396; /* Button color */
+    color: #E9D8A6; /* Button text color */
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+nav ul li .btn-signin:hover, .btn-register:hover {
+    background-color: #005F73; /* Darker button color on hover */
+}
+
+/* Confirmation Section Styles */
+.confirmation-section {
+    background: rgba(233, 216, 166, 0.8); /* Light background with transparency */
+    height: auto; /* Allow height to adjust based on content */
+    padding: 50px 20px; /* Add padding */
+}
+
+.content {
+    background-color: #ffffff; /* White background for content */
+    border-radius: 16px; /* Rounded corners */
+    padding: 40px; /* Padding for content */
+    width: 90%; /* Full width */
+    max-width: 800px; /* Maintain wider max width for the entire content */
+    margin: 0 auto; /* Center align content */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+h1 {
+    font-size: 2rem; /* Header size */
+    color: #001219; /* Dark header text color */
+    margin-bottom: 10px; /* Margin below header */
+}
+
+p {
+    font-size: 1rem; /* Paragraph text size */
+    color: #001219; /* Dark paragraph text color */
+    margin-bottom: 20px; /* Margin below paragraphs */
+}
+
+/* Ticket Styles */
+.ticket-container {
+    background-color: #F7F7F7; /* Light grey background for ticket */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px; /* Padding for ticket */
+    margin-bottom: 30px; /* Margin below ticket */
+    border: 2px solid #d3d3d3; /* Light border */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+    width: 100%; /* Full width for ticket */
+}
+
+.ticket-header {
+    text-align: center; /* Center header text */
+    margin-bottom: 20px; /* Space below header */
+}
+
+.logo-placeholder {
+    display: inline-block;
+    width: 50px; /* Placeholder size */
+    height: 50px; /* Placeholder size */
+    background-color: #0A9396; /* Placeholder color */
+    border-radius: 50%; /* Circle */
+    margin-bottom: 10px; /* Margin below logo */
+}
+
+.ticket-details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Full width */
+}
+
+.departure-info, .arrival-info {
+    width: 48%; /* Adjusted width for two-column layout */
+    text-align: left; /* Align text to the left */
+    padding-left: 60px;
+}
+
+.info-notes {
+    background-color: #0A9396; /* Background for notes */
+    color: #ffffff; /* White text color */
+    padding: 10px; /* Padding for notes */
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 20px; /* Margin above notes */
+    text-align: left; /* Left align text */
+}
+
+/* Passenger Info Styles */
+.passenger-info {
+    display: flex; /* Use flexbox for two-column layout */
+    justify-content: space-between; /* Space between columns */
+    width: 100%; /* Full width */
+    margin-top: 20px; /* Margin above passenger info */
+    text-align: left; /* Left align text */
+    padding-left: 60px;
+}
+
+.passenger-column {
+    width: 48%; /* Width for each column */
+}
+
+.passenger-column p {
+    margin-bottom: 5px; /* Space between info lines */
+}
+
+/* Download and Share Buttons */
+.download-share {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+}
+
+.btn-download, .btn-share {
+    padding: 10px 30px; /* Padding for buttons */
+    background-color: #0A9396; /* Button color */
+    color: #E9D8A6; /* Button text color */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1rem; /* Button text size */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.btn-download:hover, .btn-share:hover {
+    background-color: #005F73; /* Darker button color on hover */
+}
