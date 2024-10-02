@@ -14,7 +14,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    max-height: 500vh; /* Max height for the container */
+    position: relative; /* To stack the box over the background */
+    z-index: 1; /* Ensure the box appears above the background */
+    
 }
 
 .form-box {
