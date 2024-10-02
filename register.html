@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="form-box">
+            <h1>Create Your Account</h1>
+            <p>Please use a valid E-Mail ID, Mobile number, and correct personal details in the registration form. This may be required for verification purposes.</p>
+            <p class="warning-text">Garbage / Junk values in profile may lead to deactivation of account.</p>
+            
+            <form onsubmit="return validateForm()" action="signupForm.php" method="post">
+                <div class="input-container">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" name="username" required>
+                    <p class="error" id="usernameError"></p>
+                </div>
+                <div class="input-container">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                <div class="input-container">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <p class="error" id="passwordError"></p>
+                </div>
+                <div class="input-container">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <p class="error" id="confirmPasswordError"></p>
+                </div>
+                <div class="input-container">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-container">
+                    <label for="mobile">Mobile</label>
+                    <div class="mobile-input">
+                        <select name="country-code" id="country-code">
+                            <option value="+91">+91</option>
+                            <option value="+1">+1</option>
+                            <option value="+44">+44</option>
+                            <option value="+81">+81</option>
+                        <input type="text" id="mobile" name="mobile" pattern="[0-9]{10}" maxlength="10" required>
+                    </div>
+                </div>
+                
+                <!-- CAPTCHA section -->
+                <div class="captcha-container">
+                    <p id="captcha"></p>
+                    <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required>
+                    <p id="captchaError" class="error"></p>
+                </div>
+
+                <div class="submit-container">
+                    <input type="submit" value="Sign Up" class="submit-button">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Generate a random CAPTCHA
+        function generateCaptcha() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            document.getElementById('captcha').innerText = captcha;
+        }
+
+        // Form validation function
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            var captcha = document.getElementById("captcha").innerText;
+            var captchaInput = document.getElementById("captchaInput").value;
+
+            var isValid = true;
+
+            // Check if username and password are not the same
+            if (username === password) {
+                document.getElementById("passwordError").innerText = "User Name and Password should not be the same.";
+                isValid = false;
+            } else {
+                document.getElementById("passwordError").innerText = "";
+            }
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerText = "Passwords do not match.";
+                isValid = false;
+            } else {
+                document.getElementById("confirmPasswordError").innerText = "";
+            }
+
+            // Validate CAPTCHA
+            if (captcha !== captchaInput) {
+                document.getElementById("captchaError").innerText = "Incorrect CAPTCHA.";
+                isValid = false;
+            } else {
+                document.getElementById("captchaError").innerText = "";
+            }
+
+            return isValid;
+        }
+
+        // Generate CAPTCHA on page load
+        window.onload = function() {
+            generateCaptcha();
+        };
+    </script>
+</body>
+</html>

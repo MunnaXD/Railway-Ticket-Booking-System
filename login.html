@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Railway Booking</title>
+    <link rel="stylesheet" href="login_styles.css">
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="container">
+        <div class="box">
+            <h1>Sign In</h1>
+            <form action="dashboard.html" onsubmit="return validation()">
+                <input type="text" placeholder="User Name" class="input-field" id="username" required>
+                <input type="password" placeholder="Password" class="input-field" id="password" required>
+                <button type="button" class="generate-captcha" onclick="generateCaptcha()">Generate Captcha</button>
+                <p id="captcha-text" class="captcha-text">Captcha: </p>
+                <input type="text" id="captcha" placeholder="Enter Captcha" class="input-field" required>
+                <p id="error" class="error"></p>
+                <br>
+                <input type="submit" value="Sign In" class="submit-button">
+            </form>
+            <p class="forgot-password"><a href="forgot_password.html">Forgot your password?</a></p>
+            <p class="signup-link">Don't have an account? <a href="sign_up.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+        let captcha;
+
+        function generateCaptcha() {
+            captcha = Math.floor(1000 + Math.random() * 9000); // Generates a random 4-digit number
+            document.getElementById("captcha-text").innerHTML = "Captcha: " + captcha;
+        }
+
+        function validation() {
+            const enteredCaptcha = document.getElementById("captcha").value;
+            if (enteredCaptcha != captcha) {
+                document.getElementById("error").innerHTML = "Captcha does not match!";
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
