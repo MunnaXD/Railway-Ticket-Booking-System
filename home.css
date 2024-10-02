@@ -1,0 +1,157 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #E9D8A6;
+    color: #001219;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.main-header {
+    background-color: #001219;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+
+.logo h2 {
+    color: #E9D8A6;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #E9D8A6;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li .btn-signin, .btn-register {
+    padding: 8px 16px;
+    background-color: #0A9396;
+    color: #E9D8A6;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+nav ul li .btn-signin:hover, .btn-register:hover {
+    background-color: #005F73;
+}
+
+/* Hero Section and Form Styles */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: url('train2.jpg') no-repeat center center/cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 18, 25, 0.6); /* Semi-transparent overlay */
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    color: #E9D8A6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding-right: 50px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container {
+    background-color: #001219;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.9rem;
+    color: #94D2BD;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #005F73;
+    border-radius: 8px;
+    background-color: #0A9396;
+    color: white;
+}
+
+input[type="date"], input[type="number"], select {
+    padding: 10px;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.full-width {
+    grid-column: span 2;
+    text-align: center;
+}
+
+.btn {
+    padding: 14px;
+    font-size: 1.2rem;
+    background-color: #0A9396;
+    color: #E9D8A6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #005F73;
+}
+
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+}
