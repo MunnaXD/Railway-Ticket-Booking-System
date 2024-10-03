@@ -1,0 +1,188 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #E9D8A6;
+    color: #001219;
+    line-height: 1.6;
+    
+}
+
+/* Header Section */
+.main-header {
+    background-color: #001219;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.logo h2 {
+    color: #E9D8A6;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #E9D8A6;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li .btn-signin, .btn-register {
+    padding: 8px 16px;
+    background-color: #0A9396;
+    color: #E9D8A6;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+nav ul li .btn-signin:hover, .btn-register:hover {
+    background-color: #005F73;
+}
+
+/* Section 1: Contact Header Section */
+.contact-header-section {
+    background-color: #001219;
+    color: #E9D8A6;
+    padding: 80px 20px 60px;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-left: 40px;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+}
+
+.image{
+    background: url('contact.jpg') no-repeat center center/cover; 
+    width: 100%;
+    height: 500px;
+    margin-top: 30px;
+}
+
+/* Section 2: Contact Form and Details */
+.contact-section {
+    padding: 50px 20px;
+    background-color: #001219;
+    color: #E9D8A6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.contact-form, .contact-info {
+    width: 48%;
+}
+
+.contact-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #94D2BD;
+    border-radius: 8px;
+    background-color: #0A9396;
+    color: #fff;
+    font-size: 1rem;
+}
+input[type="text"]::placeholder, input[type="email"]::placeholder,textarea::placeholder {
+    color: #94D2BD; /* Brighter placeholder color for better visibility */
+}
+
+.btn {
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: #005F73;
+    color: #E9D8A6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0A9396;
+}
+
+/* Section 3: Explore Section */
+.explore-section {
+    background: url('stars.jpg') no-repeat center center/cover; /* Replace with your own image */
+    color: #E9D8A6;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.explore-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.explore-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.join-btn {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    background-color: #0A9396;
+    color: #E9D8A6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.join-btn:hover {
+    background-color: #005F73;
+}
+
+/* Footer */
+footer {
+    background-color: #001219;
+    color: #94D2BD;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    margin-top: 30px;
+}
