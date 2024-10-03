@@ -1,0 +1,134 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #E9D8A6;
+    color: #001219;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.main-header {
+    background-color: #001219;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+
+.logo h2 {
+    color: #E9D8A6;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #E9D8A6;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* About Us Section */
+.about-us-section {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #001219;
+    color: #E9D8A6;
+}
+
+.about-us-section p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* Meet Our Team Section */
+.team-section {
+    padding: 60px 20px;
+    background-color: #0A9396;
+    color: #E9D8A6;
+    text-align: center;
+}
+
+.team-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.team-box {
+    width: 30%;
+    padding: 20px;
+    background-color: #94D2BD;
+    border-radius: 10px;
+    color: #001219;
+    text-align: center;
+}
+
+.team-image {
+    width: 120px;
+    height: 120px;
+    background-color: #E9D8A6;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden; /* Ensures the image stays inside the circle */
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fits well inside the circle */
+    border-radius: 50%;
+}
+
+.team-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.team-box p {
+    font-size: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #001219;
+    color: #94D2BD;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.join-btn {
+    padding: 10px 20px;
+    background-color: #0A9396;
+    color: #E9D8A6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.join-btn:hover {
+    background-color: #005F73;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    margin-top: 30px;
+}
