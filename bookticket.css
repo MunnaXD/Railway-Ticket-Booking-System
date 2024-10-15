@@ -1,0 +1,202 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-image: url('train2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #001219;
+}
+
+/* Header */
+.main-header {
+    background-color: rgba(0, 18, 25, 0.8);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    color: #E9D8A6;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #E9D8A6;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.btn-signin, .btn-register {
+    background-color: #0A9396;
+    color: #E9D8A6;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.btn-signin:hover, .btn-register:hover {
+    background-color: #005F73;
+}
+
+/* Booking Section */
+.booking-details-section {
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Centered Heading */
+.centered-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #001219;
+    font-size: 1.8rem;
+}
+
+.booking-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Details Section */
+.details-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.train-info-box, .cost-details-box {
+    width: 48%;
+    border: 2px solid #0A9396;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+/* Train Info Styling */
+.train-info-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.train-details p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+/* Cost Details Styling */
+.cost-details-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.cost-details-box p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.cost-details-box h3 {
+    margin-top: 15px;
+    font-size: 1.3rem;
+    color: #0A9396;
+}
+
+.btn-pay {
+    padding: 10px 30px;
+    background-color: #0A9396;
+    color: #E9D8A6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-pay:hover {
+    background-color: #005F73;
+}
+
+/* Add Travellers Form Section */
+.traveller-info-box {
+    border: 2px solid #0A9396;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.traveller-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #001219;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+}
+
+.btn-add {
+    grid-column: span 2;
+    padding: 8px 20px;
+    background-color: #0A9396;
+    color: #E9D8A6;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    width:30%
+}
+
+.btn-add:hover {
+    background-color: #005F73;
+}
+
+/* Contact Info Box */
+.contact-info-box {
+    border: 2px solid #0A9396;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.contact-info-box form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+input[type="email"], input[type="text"] {
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+}

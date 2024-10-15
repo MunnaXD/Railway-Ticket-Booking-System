@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <link rel="stylesheet" href="bookticket.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo"><h2>Train Booking</h2></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="booking-details-section">
+        
+        <div class="booking-container">
+            <h2 class="centered-heading">Review Your Booking</h2>
+            <div class="details-section">
+                <div class="train-info-box">
+                    <h2 class="centered-heading">Train Details</h2>
+                    <div class="train-details">
+                        <p><strong>Train:</strong> Hapa Duronto Express (#12267)</p>
+                        <p><strong>Departure:</strong> 11:00 PM, 11 Dec (Mumbai Central)</p>
+                        <p><strong>Arrival:</strong> 4:50 AM, 12 Dec (Ahmedabad Jn)</p>
+                        <p><strong>Seat:</strong> 3E - A2</p>
+                    </div>
+                </div>
+                <div class="cost-details-box">
+                    <h2 class="centered-heading">Cost Details</h2>
+                    <p><strong>Base fare:</strong> ₹758</p>
+                    <p><strong>Dynamic fare:</strong> ₹228</p>
+                    <p><strong>Tax:</strong> ₹45</p>
+                    <p><strong>Reservation charge:</strong> ₹40</p>
+                    <p><strong>Superfast charge:</strong> ₹45</p>
+                    <h3>Total Price per adult: ₹1,125</h3>
+                    <button class="btn-pay">Pay & Book Now</button>
+                </div>
+            </div>
+
+            <div class="traveller-info-box">
+                <h2>Add Travellers</h2>
+                <br>
+                <div class="traveller-form">
+                    <div class="form-group">
+                        <label for="travellerName">Name</label>
+                        <input type="text" id="travellerName" placeholder="Enter Traveller Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travellerAge">Age (in years)</label>
+                        <input type="number" id="travellerAge" placeholder="Enter Age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travellerGender">Gender</label>
+                        <select id="travellerGender">
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="travellerNationality">Nationality</label>
+                        <input type="text" id="travellerNationality" value="India" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="travellerBerth">Berth Preference</label>
+                        <select id="travellerBerth">
+                            <option value="No Berth Preference">No Berth Preference</option>
+                            <option value="Lower">Lower</option>
+                            <option value="Middle">Middle</option>
+                            <option value="Upper">Upper</option>
+                            <option value="Upper">Side Lower/option>
+                            <option value="Upper">Side Upper</option>
+                        </select>
+                    </div>
+                    <button class="btn-add" onclick="addTraveller()">Add Traveller</button>
+                </div>
+                <br>
+                <div class="traveller-list" id="travellerList">
+                    <h3>Travellers List:</h3>
+                    <!-- Dynamically added travellers will appear here -->
+                </div>
+            </div>
+
+            <div class="contact-info-box">
+                <h2>Contact Information</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="contactEmail">Email ID</label>
+                        <input type="email" id="contactEmail" placeholder="Enter Email ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMobile">Mobile Number</label>
+                        <input type="text" id="contactMobile" placeholder="Enter Mobile Number" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addTraveller() {
+            // Get input values
+            const name = document.getElementById('travellerName').value;
+            const age = document.getElementById('travellerAge').value;
+            const gender = document.getElementById('travellerGender').value;
+            const nationality = document.getElementById('travellerNationality').value;
+            const berth = document.getElementById('travellerBerth').value;
+
+            // Check if fields are filled
+            if (!name || !age || !gender || !nationality) {
+                alert('Please fill in all the fields.');
+                return;
+            }
+
+            // Create a new div for each traveller's details
+            const travellerDiv = document.createElement('div');
+            travellerDiv.classList.add('traveller-list-item');
+            travellerDiv.innerHTML = `<strong>Name:</strong> ${name}, <strong>Age:</strong> ${age}, <strong>Gender:</strong> ${gender}, <strong>Nationality:</strong> ${nationality}, <strong>Berth:</strong> ${berth}`;
+
+            // Append to the traveller list
+            document.getElementById('travellerList').appendChild(travellerDiv);
+
+            // Clear input fields after adding
+            document.getElementById('travellerName').value = '';
+            document.getElementById('travellerAge').value = '';
+            document.getElementById('travellerGender').selectedIndex = 0;
+            document.getElementById('travellerNationality').selectedIndex = 0;
+            document.getElementById('travellerBerth').selectedIndex = 0;
+        }
+    </script>
+</body>
+</html>
