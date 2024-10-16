@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #001219;
+    overflow: hidden;
+}
+
+.header-container {
+    background-color: #005F73;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo h1 {
+    color: #E9D8A6;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #E9D8A6;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #94D2BD;
+}
+
+/* Centering the payment form */
+.payment-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px); /* Adjusted height to fill space below the header */
+    padding: 20px;
+}
+
+.payment-container {
+    max-width: 500px;
+    width: 100%;
+    background: rgba(252, 252, 252, 0.73);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.payment-container h2 {
+    color: #005F73;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #001219;
+}
+
+.payment-form select,
+.payment-form input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #001219;
+}
+
+.payment-form .card-details {
+    margin-top: 20px;
+}
+
+.payment-form .expiry-cvv {
+    display: flex;
+    gap: 15px;
+}
+
+.payment-form .expiry-cvv div {
+    flex: 1;
+}
+
+.pay-btn {
+    width: 100%;
+    background-color: #005F73;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pay-btn:hover {
+    background-color: #0A9396;
+}
+
+/* Background Image */
+body::before {
+    content: '';
+    background: url('train2.jpg') no-repeat center center/cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
