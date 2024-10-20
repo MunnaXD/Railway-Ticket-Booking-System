@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Railway Booking</title>
+    <title>Login - Safar</title>
     <link rel="stylesheet" href="login_styles.css">
 </head>
 <body>
     <div class="background-image"></div>
     <div class="container">
         <div class="box">
-            <h1>Sign In</h1>
-            <form action="dashboard.html" onsubmit="return validation()">
+            <div class="logo-container"> <!-- Added container for cropping -->
+                <img src="vee safar (3).png" alt="Website Logo" class="logo"> <!-- Add your logo image -->
+            </div>
+            <h1>Sign In to begin your Safar!</h1>
+            <form action="home.html" onsubmit="return validation()">
                 <input type="text" placeholder="User Name" class="input-field" id="username" required>
                 <input type="password" placeholder="Password" class="input-field" id="password" required>
                 <button type="button" class="generate-captcha" onclick="generateCaptcha()">Generate Captcha</button>

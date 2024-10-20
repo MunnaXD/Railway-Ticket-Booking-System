@@ -24,10 +24,24 @@ body {
     z-index: 3;
 }
 
+.logo {
+    display: flex; /* Make logo a flex container */
+    align-items: center; /* Center logo items vertically */
+}
+
+.logo img {
+    height: 60px; /* Set a height that works well with your header */
+    width: auto;  /* Maintain aspect ratio */
+}
+
 .logo h2 {
     color: #E9D8A6;
+    margin-top: -12px;
+    margin-left: 5px;
     font-size: 1.5rem;
+    font-family: 'TT Chocolates'; /* Add the font family */
 }
+
 
 nav ul {
     list-style: none;
