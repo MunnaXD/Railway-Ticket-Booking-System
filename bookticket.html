@@ -9,18 +9,26 @@
 <body>
     <!-- Header -->
     <header class="main-header">
-        <div class="logo"><h2>Train Booking</h2></div>
+        <div class="logo">
+            <img src="train.png" alt="Safar Logo" class="logo-img"> 
+            <br>
+            <h2>SAFAR</h2>
+        </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Holiday Packages</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="#">Account Settings</a></li>
+                <li><a href="#">Manage Booking</a></li>
+                <li><a href="login.html" class="btn-signin">Sign In</a></li>
+                <li><a href="register.html" class="btn-register">Register</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="booking-details-section">
-        
         <div class="booking-container">
             <h2 class="centered-heading">Review Your Booking</h2>
             <div class="details-section">
@@ -41,7 +49,9 @@
                     <p><strong>Reservation charge:</strong> ₹40</p>
                     <p><strong>Superfast charge:</strong> ₹45</p>
                     <h3>Total Price per adult: ₹1,125</h3>
-                    <button class="btn-pay">Pay & Book Now</button>
+                    <a href='payment.html'>
+                        <button class="btn-pay">Pay & Book Now</button>
+                    </a>
                 </div>
             </div>
 
@@ -77,8 +87,8 @@
                             <option value="Lower">Lower</option>
                             <option value="Middle">Middle</option>
                             <option value="Upper">Upper</option>
-                            <option value="Upper">Side Lower/option>
-                            <option value="Upper">Side Upper</option>
+                            <option value="Side Lower">Side Lower</option>
+                            <option value="Side Upper">Side Upper</option>
                         </select>
                     </div>
                     <button class="btn-add" onclick="addTraveller()">Add Traveller</button>

@@ -9,16 +9,20 @@
 <body>
     <header class="main-header">
         <div class="logo">
-            <h2>Train Reserve</h2>
+            <img src="train.png" alt="Safar Logo" class="logo-img"> <!-- Add your logo image here -->
+            <br>
+            <h2>SAFAR</h2>
         </div>
         <nav>
             <ul>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="#">Holiday Packages</a></li>
-                <li><a href="#">Train Schedule</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
                 <li><a href="#">Account Settings</a></li>
                 <li><a href="#">Manage Booking</a></li>
-                <li><a href="#" class="btn-signin">Sign In</a></li>
-                <li><a href="#" class="btn-register">Register</a></li>
+                <li><a href="login.html" class="btn-signin">Sign In</a></li>
+                <li><a href="register.html" class="btn-register">Register</a></li>
             </ul>
         </nav>
     </header>
@@ -46,31 +50,32 @@
                     <p class="info-message">Your ticket will be booked on a longer route. Board at <strong>Mumbai Central</strong> and get down at <strong>Ahmedabad</strong></p>
                 </div>
                 <div class="booking-options">
-                    <div class="class-option" onclick="bookNow('2A')">
+                    <div class="class-option" onclick="redirectToBooking('2A')">
                         <p>2A</p>
                         <p>₹ 2045</p>
                         <span>AVAILABLE 23</span>
                         <small>Updated 7 hrs ago</small>
                     </div>
-                    <div class="class-option" onclick="bookNow('3E')">
+                    <div class="class-option" onclick="redirectToBooking('3E')">
                         <p>3E</p>
                         <p>₹ 1450</p>
                         <span>AVAILABLE 100</span>
                         <small>Updated 7 hrs ago</small>
                     </div>
-                    <div class="class-option" onclick="bookNow('3A')">
+                    <div class="class-option" onclick="redirectToBooking('3A')">
                         <p>3A</p>
                         <p>₹ 1145</p>
                         <span>AVAILABLE 107</span>
                         <small>Updated 2 hrs ago</small>
                     </div>
-                    <div class="class-option" onclick="bookNow('2S')">
+                    <div class="class-option" onclick="redirectToBooking('2S')">
                         <p>2S</p>
                         <p>₹ 275</p>
                         <span>AVAILABLE 10</span>
                         <small>Updated 7 hrs ago</small>
                     </div>
                 </div>
+                
             </div>
             <div class="train-card">
                 <div class="train-info">
@@ -116,6 +121,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="search_train_script.js"></script>
 </body>
 </html>

@@ -8,8 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Function to redirect to the booking page when a class is selected
-function redirectToBooking(trainClass) {
-    // Here you can pass the selected class to the booking page
-    alert('Redirecting to booking page for class: ' + trainClass);
-    // window.location.href = `booking.html?class=${trainClass}`;
+function redirectToBooking(classType) {
+    // Optionally, you can store classType in local storage or pass it to the next page
+    // localStorage.setItem('selectedClass', classType);
+    
+    // Redirect to the booking page
+    window.location.href = 'bookticket.html';
 }
+

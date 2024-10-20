@@ -7,16 +7,22 @@
     <title>Payment Page</title>
 </head>
 <body>
-    <header class="header-container">
+    <header class="main-header">
         <div class="logo">
-            <h1>YourWebsite</h1>
+            <img src="train.png" alt="Safar Logo" class="logo-img">
+            <br>
+            <h2>SAFAR</h2>
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Search Train</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Holiday Packages</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="#">Account Settings</a></li>
+                <li><a href="#">Manage Booking</a></li>
+                <li><a href="login.html" class="btn-signin">Sign In</a></li>
+                <li><a href="register.html" class="btn-register">Register</a></li>
             </ul>
         </nav>
     </header>
@@ -24,7 +30,7 @@
     <div class="payment-container-wrapper">
         <div class="payment-container">
             <h2>Payment Details</h2>
-            <form class="payment-form">
+            <form class="payment-form" action="confirmation.html" method="POST">
                 <label for="payment-method">Payment Method</label>
                 <select id="payment-method" name="payment-method">
                     <option value="credit-card">Credit Card</option>
@@ -51,8 +57,9 @@
                         </div>
                     </div>
                 </div>
-
+            
                 <button type="submit" class="pay-btn">Pay Now</button>
+                
             </form>
         </div>
     </div>

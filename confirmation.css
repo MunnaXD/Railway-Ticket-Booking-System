@@ -7,58 +7,77 @@
 }
 
 body {
-    background-image: url('train2.jpg'); /* Background image */
+    background-image: url('confirmation\ page.jpg'); /* Background image */
     background-size: cover; /* Cover entire background */
     background-repeat: no-repeat; /* Prevent background repeat */
     color: #001219; /* Dark text color */
     line-height: 1.6;
     text-align: center;
+    padding-top: 80px; /* Add padding to prevent overlap with fixed header */
 }
 
 /* Header Styles */
 .main-header {
-    background-color: rgba(0, 18, 25, 0.7); /* Semi-transparent dark header background */
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    z-index: 3;
+    background-color: #001219; /* Header background color */
+    padding: 10px 20px; /* Padding around the header */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and navigation */
+    align-items: center; /* Center items vertically */
+    position: fixed; /* Fix the header to the top */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width of the header */
+    z-index: 3; /* Stack above other elements */
+}
+
+.logo {
+    display: flex; /* Make logo a flex container */
+    align-items: center; /* Center logo items vertically */
+}
+
+.logo img {
+    height: 60px; /* Set a height that works well with your header */
+    width: auto; /* Maintain aspect ratio */
 }
 
 .logo h2 {
-    color: #E9D8A6; /* Light logo color */
-    font-size: 1.5rem;
+    color: #E9D8A6; /* Logo text color */
+    margin-top: -12px; /* Adjusts logo positioning */
+    margin-left: 5px; /* Spacing between logo image and text */
+    font-size: 2rem; /* Increased font size for the logo text */
+    font-family: 'TT Chocolates'; /* Font style for the logo */
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    list-style: none; /* Remove default list styles */
+    display: flex; /* Flexbox for navigation links */
+    gap: 20px; /* Space between navigation links */
 }
 
 nav ul li a {
-    color: #E9D8A6; /* Light text color for links */
-    text-decoration: none;
-    font-size: 1rem;
+    color: #E9D8A6; /* Navigation link color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 1.2rem; /* Increased font size for navigation links */
 }
 
-nav ul li .btn-signin, .btn-register {
-    padding: 8px 16px;
-    background-color: #0A9396; /* Button color */
+nav ul li .btn-signin,
+nav ul li .btn-register {
+    padding: 8px 16px; /* Padding for buttons */
+    background-color: #0A9396; /* Button background color */
     color: #E9D8A6; /* Button text color */
-    border-radius: 8px;
-    font-size: 0.9rem;
+    border-radius: 8px; /* Rounded corners for buttons */
+    font-size: 1rem; /* Font size for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
-nav ul li .btn-signin:hover, .btn-register:hover {
-    background-color: #005F73; /* Darker button color on hover */
+nav ul li .btn-signin:hover,
+nav ul li .btn-register:hover {
+    background-color: #005F73; /* Darker background on hover */
 }
 
 /* Confirmation Section Styles */
 .confirmation-section {
-    background: rgba(233, 216, 166, 0.8); /* Light background with transparency */
+    align-items: center;
     height: auto; /* Allow height to adjust based on content */
     padding: 50px 20px; /* Add padding */
 }
@@ -71,6 +90,22 @@ nav ul li .btn-signin:hover, .btn-register:hover {
     max-width: 800px; /* Maintain wider max width for the entire content */
     margin: 0 auto; /* Center align content */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+.logo-container {
+    width: 250px; /* Set width for cropping */
+    height: 200px; /* Set height for cropping */
+    overflow: hidden; /* Hide overflow */
+    margin-bottom: 20px; /* Space between logo and title */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container img {
+    margin-top: 100px;
+    margin-left: 0px;
+    width: 100%; /* Full width for image */
+    height: auto; /* Maintain aspect ratio */
 }
 
 h1 {

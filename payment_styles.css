@@ -7,38 +7,64 @@ body {
     overflow: hidden;
 }
 
-.header-container {
-    background-color: #005F73;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+/* Header Styles */
+.main-header {
+    background-color: #001219; /* Header background color */
+    padding: 10px 20px; /* Padding around the header */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and navigation */
+    align-items: center; /* Center items vertically */
+    position: fixed; /* Fixed positioning for the header */
+    top: 0; /* Stick to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width of the header */
+    height: 50px; /* Set a consistent height for the header */
+    z-index: 3; /* Stack above other elements */
 }
 
-.logo h1 {
-    color: #E9D8A6;
-    font-size: 24px;
+.logo {
+    display: flex; /* Make logo a flex container */
+    align-items: center; /* Center logo items vertically */
+}
+
+.logo img {
+    height: 60px; /* Set a height that works well with your header */
+    width: auto;  /* Maintain aspect ratio */
+}
+
+.logo h2 {
+    color: #E9D8A6; /* Logo text color */
+    margin-top: 5px; /* Adjusts logo positioning */
+    margin-left: 5px; /* Spacing between logo image and text */
+    font-size: 1.5rem; /* Logo font size */
+    font-family: 'TT Chocolates'; /* Font style for the logo */
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 10px;
+    list-style: none; /* Remove default list styles */
+    display: flex; /* Flexbox for navigation links */
+    gap: 20px; /* Space between navigation links */
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #E9D8A6;
-    font-weight: bold;
+    color: #E9D8A6; /* Navigation link color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 1rem; /* Font size for navigation links */
 }
 
-nav ul li a:hover {
-    color: #94D2BD;
+nav ul li .btn-signin,
+nav ul li .btn-register {
+    padding: 8px 16px; /* Padding for buttons */
+    background-color: #0A9396; /* Button background color */
+    color: #E9D8A6; /* Button text color */
+    border-radius: 8px; /* Rounded corners for buttons */
+    font-size: 0.9rem; /* Font size for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+nav ul li .btn-signin:hover,
+nav ul li .btn-register:hover {
+    background-color: #005F73; /* Darker background on hover */
 }
 
 /* Centering the payment form */
@@ -46,8 +72,9 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 150px); /* Adjusted height to fill space below the header */
+    min-height: calc(100vh - 80px); /* Adjusted height to fill space below the header */
     padding: 20px;
+    margin-top: 80px; /* Push content down by the header height */
 }
 
 .payment-container {
@@ -117,7 +144,7 @@ nav ul li a:hover {
 /* Background Image */
 body::before {
     content: '';
-    background: url('train2.jpg') no-repeat center center/cover;
+    background: url('extras2.jpg') no-repeat center center/cover;
     position: fixed;
     top: 0;
     left: 0;

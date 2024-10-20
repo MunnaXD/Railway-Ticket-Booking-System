@@ -10,7 +10,6 @@ body {
     background-color: #E9D8A6;
     color: #001219;
     line-height: 1.6;
-    
 }
 
 /* Header Section */
@@ -20,16 +19,28 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: absolute;
     width: 100%;
     z-index: 3;
 }
 
-.logo h2 {
-    color: #E9D8A6;
-    font-size: 1.5rem;
+.logo {
+    display: flex; /* Make logo a flex container */
+    align-items: center; /* Center logo items vertically */
 }
 
+.logo img {
+    height: 60px; /* Set a height that works well with your header */
+    width: auto;  /* Maintain aspect ratio */
+}
+
+.logo h2 {
+    color: #E9D8A6;
+    margin-top: -12px;
+    margin-left: 5px;
+    font-size: 1.5rem;
+    font-family: 'TT Chocolates'; /* Add the font family */
+}
 nav ul {
     list-style: none;
     display: flex;
@@ -55,33 +66,35 @@ nav ul li .btn-signin:hover, .btn-register:hover {
     background-color: #005F73;
 }
 
+
 /* Section 1: Contact Header Section */
 .contact-header-section {
-    background-color: #001219;
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.image {
+    background: url('contact\ us.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header-content {
+    margin-left: 40px;
     color: #E9D8A6;
-    padding: 80px 20px 60px;
-    text-align: center;
 }
 
 .header-content h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    text-align: left;
-    margin-left: 40px;
 }
 
 .header-content p {
     font-size: 1.2rem;
-    text-align: left;
-    margin-left: 40px;
-}
-
-.image{
-    background: url('contact\ us.jpg') no-repeat center center/cover; 
-    width: 100%;
-    height: 500px;
-    margin-top: 30px;
-
 }
 
 /* Section 2: Contact Form and Details */
@@ -127,8 +140,9 @@ input, textarea {
     color: #fff;
     font-size: 1rem;
 }
-input[type="text"]::placeholder, input[type="email"]::placeholder,textarea::placeholder {
-    color: #94D2BD; /* Brighter placeholder color for better visibility */
+
+input::placeholder, textarea::placeholder {
+    color: #94D2BD;
 }
 
 .btn {
@@ -147,10 +161,29 @@ input[type="text"]::placeholder, input[type="email"]::placeholder,textarea::plac
 
 /* Section 3: Explore Section */
 .explore-section {
-    background: url('stars.jpg') no-repeat center center/cover; /* Replace with your own image */
-    color: #E9D8A6;
+    position: relative;
+    background: url('extras4.jpg') no-repeat center center/cover;
     padding: 60px 20px;
     text-align: center;
+    height: 400px;
+}
+
+.explore-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(5px);
+    z-index: 1;
+}
+
+.explore-content {
+    position: relative;
+    z-index: 2;
+    color: #000000;
 }
 
 .explore-content h2 {
@@ -187,5 +220,5 @@ footer {
 
 .footer-bottom p {
     font-size: 0.9rem;
-    margin-top: 30px;
+    margin-top: 10px;
 }

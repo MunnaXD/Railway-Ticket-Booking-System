@@ -7,51 +7,64 @@ body {
 
 /* Header Styles */
 .main-header {
-    background-color: #001219;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
+    background-color: #001219; /* Header background color */
+    padding: 10px 20px; /* Padding around the header */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and navigation */
+    align-items: center; /* Center items vertically */
+    position: absolute; /* Positioning of the header */
+    width: 100%; /* Full width of the header */
+    z-index: 3; /* Stack above other elements */
+}
+
+.logo {
+    display: flex; /* Make logo a flex container */
+    align-items: center; /* Center logo items vertically */
+}
+
+.logo img {
+    height: 60px; /* Set a height that works well with your header */
+    width: auto;  /* Maintain aspect ratio */
 }
 
 .logo h2 {
-    color: #E9D8A6;
-    font-size: 1.5rem;
+    color: #E9D8A6; /* Logo text color */
+    margin-top: 5px; /* Adjusts logo positioning */
+    margin-left: 5px; /* Spacing between logo image and text */
+    font-size: 1.5rem; /* Logo font size */
+    font-family: 'TT Chocolates'; /* Font style for the logo */
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    list-style: none; /* Remove default list styles */
+    display: flex; /* Flexbox for navigation links */
+    gap: 20px; /* Space between navigation links */
 }
 
 nav ul li a {
-    color: #E9D8A6;
-    text-decoration: none;
-    font-size: 1rem;
+    color: #E9D8A6; /* Navigation link color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 1.1rem; /* Font size for navigation links */
 }
 
-nav ul li .btn-signin, .btn-register {
-    padding: 8px 16px;
-    background-color: #0A9396;
-    color: #E9D8A6;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
+nav ul li .btn-signin,
+nav ul li .btn-register {
+    padding: 8px 16px; /* Padding for buttons */
+    background-color: #0A9396; /* Button background color */
+    color: #E9D8A6; /* Button text color */
+    border-radius: 8px; /* Rounded corners for buttons */
+    font-size: 0.9rem; /* Font size for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
-nav ul li .btn-signin:hover, .btn-register:hover {
-    background-color: #005F73;
+nav ul li .btn-signin:hover,
+nav ul li .btn-register:hover {
+    background-color: #005F73; /* Darker background on hover */
 }
 
 /* Content Styles */
 .content-container {
-    background: url('train2.jpg') center/cover no-repeat;
+    background: url('search\ train.jpg') center/cover no-repeat;
     background-attachment: fixed; 
     padding: 120px 20px 20px; 
     min-height: 100vh; 
