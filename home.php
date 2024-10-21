@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,14 +20,20 @@
         </div>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a href="home.php">Home</a></li>
                 <li><a href="#">Holiday Packages</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="contactus.html">Contact Us</a></li>
                 <li><a href="#">Account Settings</a></li>
                 <li><a href="#">Manage Booking</a></li>
-                <li><a href="login.html" class="btn-signin">Sign In</a></li>
-                <li><a href="register.html" class="btn-register">Register</a></li>
+                
+                <!-- Check if the user is logged in -->
+                <?php if (isset($_SESSION['username'])): ?>
+                    <li><a href="logout.php" class="btn-signin">Logout</a></li>
+                <?php else: ?>
+                    <li><a href="login.php" class="btn-signin">Sign In</a></li>
+                    <li><a href="register.php" class="btn-register">Register</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>
@@ -32,7 +42,12 @@
         <div class="overlay"></div>
         <div class="content">
             <div class="text-content">
-                <h1>Hey there!<br>Where are you going?</h1>
+                <!-- Greet the user if logged in -->
+                <?php if (isset($_SESSION['username'])): ?>
+                    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!<br>Where are you going?</h1>
+                <?php else: ?>
+                    <h1>Hey there!<br>Where are you going?</h1>
+                <?php endif; ?>
             </div>
             <div class="form-container">
                 <form action="search_Train.html" method="GET">
@@ -58,42 +73,5 @@
             </div>
         </div>
     </section>
-    <section class="destinations-section">
-        <h2>Popular Destinations</h2>
-        <div class="destinations-container">
-            <div class="destination">
-                <img src="kashmir.jpg" alt="Destination 1">
-                <div class="overlay">
-                    <h3>Kashmir</h3>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="delhi.jpg" alt="Destination 2">
-                <div class="overlay">
-                    <h3>Delhi</h3>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="darjeeling.jpg" alt="Destination 3">
-                <div class="overlay">
-                    <h3>Darjeeling</h3>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="assam.jpg" alt="Destination 4">
-                <div class="overlay">
-                    <h3>Assam</h3>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="goa.jpg" alt="Destination 4">
-                <div class="overlay">
-                    <h3>Goa</h3>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-    
 </body>
 </html>

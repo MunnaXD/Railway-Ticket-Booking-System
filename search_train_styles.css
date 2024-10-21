@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Header Styles */
@@ -12,7 +13,7 @@ body {
     display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space between logo and navigation */
     align-items: center; /* Center items vertically */
-    position: absolute; /* Positioning of the header */
+    position: fixed; /* Fix the header to the top */
     width: 100%; /* Full width of the header */
     z-index: 3; /* Stack above other elements */
 }
@@ -24,7 +25,7 @@ body {
 
 .logo img {
     height: 60px; /* Set a height that works well with your header */
-    width: auto;  /* Maintain aspect ratio */
+    width: auto; /* Maintain aspect ratio */
 }
 
 .logo h2 {
@@ -55,6 +56,7 @@ nav ul li .btn-register {
     border-radius: 8px; /* Rounded corners for buttons */
     font-size: 0.9rem; /* Font size for buttons */
     cursor: pointer; /* Pointer cursor on hover */
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 nav ul li .btn-signin:hover,
@@ -64,7 +66,7 @@ nav ul li .btn-register:hover {
 
 /* Content Styles */
 .content-container {
-    background: url('search\ train.jpg') center/cover no-repeat;
+    background: url('search train.jpg') center/cover no-repeat;
     background-attachment: fixed; 
     padding: 120px 20px 20px; 
     min-height: 100vh; 

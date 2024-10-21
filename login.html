@@ -14,13 +14,15 @@
                 <img src="vee safar (3).png" alt="Website Logo" class="logo"> <!-- Add your logo image -->
             </div>
             <h1>Sign In to begin your Safar!</h1>
-            <form action="home.html" onsubmit="return validation()">
-                <input type="text" placeholder="User Name" class="input-field" id="username" required>
-                <input type="password" placeholder="Password" class="input-field" id="password" required>
+            <form action="login.php" method="POST" onsubmit="return validation()">
+                <input type="text" name="username" placeholder="User Name" class="input-field" id="username" required>
+                <input type="password" name="password" placeholder="Password" class="input-field" id="password" required>
                 <button type="button" class="generate-captcha" onclick="generateCaptcha()">Generate Captcha</button>
                 <p id="captcha-text" class="captcha-text">Captcha: </p>
                 <input type="text" id="captcha" placeholder="Enter Captcha" class="input-field" required>
-                <p id="error" class="error"></p>
+                <p id="error" class="error">
+                    <?php if (isset($error)) echo $error; ?> <!-- Display error if exists -->
+                </p>
                 <br>
                 <input type="submit" value="Sign In" class="submit-button">
             </form>

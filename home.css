@@ -19,7 +19,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: fixed; /* Fix the header to the top */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
     width: 100%;
     z-index: 3;
 }
@@ -73,6 +75,7 @@ nav ul li .btn-signin:hover, .btn-register:hover {
     position: relative;
     height: 100vh;
     background: url('train2.jpg') no-repeat center center/cover;
+    
 }
 
 .overlay {
@@ -82,6 +85,7 @@ nav ul li .btn-signin:hover, .btn-register:hover {
     right: 0;
     bottom: 0;
     background: rgba(0, 18, 25, 0.6); /* Semi-transparent overlay */
+    ; /* Apply blur effect */
 }
 
 .content {
@@ -93,10 +97,11 @@ nav ul li .btn-signin:hover, .btn-register:hover {
     height: 100%;
     padding-left: 50px;
     padding-right: 50px;
+    backdrop-filter: blur(2px); /* Apply blur effect */
 }
 
 .text-content {
-    color: #E9D8A6;
+    color: #9b7d1a;
     margin-top: 0px;
     text-align: left;
     max-width: 600px; /* Adjust width for the text block */
@@ -180,3 +185,63 @@ input[type="number"]::-webkit-inner-spin-button {
         grid-template-columns: 1fr;
     }
 }
+
+/* Destinations Section Styles */
+.destinations-section {
+    padding: 40px 20px;
+    background-color: #E9D8A6; /* Same background color as body */
+    text-align: center; /* Center-align text */
+}
+
+.destinations-section h2 {
+    color: #001219; /* Dark text for section title */
+    margin-bottom: 20px; /* Space below title */
+    font-size: 2rem; /* Adjust font size */
+}
+
+.destinations-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between boxes */
+}
+
+.destination {
+    position: relative; /* Positioning context for overlay */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 12px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+}
+
+.destination img {
+    width: 100%; /* Full width of the box */
+    height: 100%; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Animation for scaling */
+}
+
+.destination:hover img {
+    transform: scale(1.1); /* Scale image on hover */
+}
+
+.overlay {
+    position: absolute; /* Position overlay */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: flex;
+    justify-content: center; /* Center align text */
+    align-items: center; /* Center align vertically */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease; /* Fade effect */
+}
+
+.destination:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.overlay h3 {
+    color: #E9D8A6; /* Text color for overlay */
+    font-size: 1.5rem; /* Adjust font size */
+}
+

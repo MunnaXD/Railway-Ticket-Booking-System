@@ -186,6 +186,21 @@ p {
     margin-bottom: 5px; /* Space between info lines */
 }
 
+/* QR Code Styles */
+.qr-code-container {
+    text-align: center; /* Center the QR code */
+    margin-top: 20px; /* Space above QR code */
+}
+
+.qr-code {
+    width: 150px; /* Set width for the QR code */
+    height: 150px; /* Set height for the QR code */
+    margin: 10px auto; /* Center the QR code */
+    border: 2px solid #0A9396; /* Optional: border around QR code */
+    border-radius: 8px; /* Optional: rounded corners */
+    background-color: white; /* Optional: background color */
+}
+
 /* Download and Share Buttons */
 .download-share {
     display: flex;

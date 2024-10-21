@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Confirmation</title>
     <link rel="stylesheet" href="confirmation.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <header class="main-header">
         <div class="logo">
-            <img src="train.png" alt="Safar Logo" class="logo-img"> <!-- Add your logo image here -->
+            <img src="train.png" alt="Safar Logo" class="logo-img">
             <br>
             <h2>SAFAR</h2>
         </div>
@@ -27,13 +28,11 @@
         </nav>
     </header>
     
-
     <section class="confirmation-section">
         <div class="content">
             <h1>Online Booking Ticket Confirmation</h1>
             <p>Your ticket details are below. Safe travels!</p>
 
-            <!-- Ticket Section -->
             <div class="ticket-container">
                 <div class="ticket-header">
                     <div class="logo-container">
@@ -55,12 +54,16 @@
                     </div>
                 </div>
 
+                <div class="qr-code-container">
+                    <p>Scan the QR code for your ticket:</p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://yourwebsite.com/confirmation.html&size=150x150" alt="QR Code" class="qr-code">
+                </div>
+
                 <div class="info-notes">
                     <p>Show e-tickets and passenger identities during check-in.</p>
                     <p>Please arrive at the boarding gate at least 30 minutes before departure time.</p>
                 </div>
 
-                <!-- Passenger Info with Two Columns -->
                 <div class="passenger-info">
                     <div class="passenger-column">
                         <p><strong>Name:</strong> Lorenzo Masyalli</p>
@@ -73,12 +76,33 @@
                 </div>
             </div>
 
-            <!-- Download and Share Buttons -->
             <div class="download-share">
-                <button class="btn-download">Download Ticket</button>
-                <button class="btn-share">Share Ticket</button>
+                <button id="btn-download" class="btn-download">Download Ticket</button>
+                <button id="btn-share" class="btn-share">Share Ticket</button>
             </div>
         </div>
     </section>
+
+    <script>
+        // Function to download the ticket as PNG
+        document.getElementById("btn-download").addEventListener("click", function () {
+            html2canvas(document.querySelector(".ticket-container")).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL("image/png");
+                link.download = 'ticket.png'; // Name of the downloaded file
+                link.click(); // Trigger the download
+            });
+        });
+
+        // Function to share ticket via email
+        document.getElementById("btn-share").addEventListener("click", function () {
+            const subject = "Your Ticket Confirmation";
+            const body = "Please find attached your ticket confirmation.";
+            const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client with pre-filled subject and body
+            window.location.href = mailtoLink;
+        });
+    </script>
 </body>
 </html>

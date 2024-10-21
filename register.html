@@ -12,7 +12,7 @@
             <h1>Create Your Account to begin your Safar!</h1>
             
             
-            <form onsubmit="return validateForm()" action="login.html" method="post">
+            <form onsubmit="return validateForm()" action="register.php" method="POST">
                 <div class="input-container">
                     <label for="username">User Name</label>
                     <input type="text" id="username" name="username" required>
@@ -56,7 +56,9 @@
                 </div>
 
                 <div class="submit-container">
-                    <input type="submit" value="Sign Up" class="submit-button">
+                    <a href='login.html'>
+                        <input type="submit" value="Sign Up" class="submit-button">
+                    </a>
                 </div>
             </form>
         </div>
