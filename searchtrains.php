@@ -3,20 +3,20 @@ session_start();
 include 'db.php'; // Include your database connection
 
 // Get the form data
-$from = $_POST['from']; // Source station name
-$to = $_POST['to']; // Destination station name
-$departure_date = $_POST['departure_date']; // Departure date
+$from = $_POST['from'];  // Source station
+$to = $_POST['to'];      // Destination station
+$departure_date = $_POST['departure_date'];  // Date of travel
+
+// Store the departure date in the session for later use (in ticket creation, etc.)
+$_SESSION['departure_date'] = $departure_date;
 
 // Prepare a query to fetch relevant trains
 $sql = "SELECT t.TrainID, t.TrainNumber, t.TrainName, s.DepartureTime, s.ArrivalTime, s.DaysOfOperation, r.SourceStation, r.DestinationStation 
         FROM trains t 
         JOIN schedule s ON t.ScheduleID = s.ScheduleID
         JOIN route r ON t.RouteID = r.RouteID
-        JOIN stations st1 ON r.SourceStation = st1.StationID
-        JOIN stations st2 ON r.DestinationStation = st2.StationID
-        WHERE st1.StationName = ? 
-        AND st2.StationName = ? 
-        AND s.DaysOfOperation LIKE CONCAT('%', DAYNAME(?), '%')";
+        WHERE r.SourceStation = ? 
+        AND r.DestinationStation = ? 
 
 // Prepare the statement
 $stmt = $conn->prepare($sql);
@@ -67,7 +67,6 @@ $result = $stmt->get_result();
                         <h2><?php echo htmlspecialchars($row['TrainName']) . " (#" . htmlspecialchars($row['TrainNumber']) . ")"; ?></h2>
                         <p>Departure: <?php echo htmlspecialchars($row['DepartureTime']) . ", " . htmlspecialchars($departure_date); ?></p>
                         <p>Arrival: <?php echo htmlspecialchars($row['ArrivalTime']); ?></p>
-                        <p>Days of Operation: <?php echo htmlspecialchars($row['DaysOfOperation']); ?></p>
                     </div>
                     <div class="booking-options">
                         <div class="class-option">
