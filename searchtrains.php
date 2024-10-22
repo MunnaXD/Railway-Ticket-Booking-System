@@ -3,17 +3,19 @@ session_start();
 include 'db.php'; // Include your database connection
 
 // Get the form data
-$from = $_POST['from'];
-$to = $_POST['to'];
-$departure_date = $_POST['departure_date'];
+$from = $_POST['from']; // Source station name
+$to = $_POST['to']; // Destination station name
+$departure_date = $_POST['departure_date']; // Departure date
 
 // Prepare a query to fetch relevant trains
-$sql = "SELECT t.TrainID, t.TrainNumber, t.TrainName, s.DepartureTime, s.ArrivalTime, s.DaysOfOperation, r.SourceStationID, r.DestinationStationID 
+$sql = "SELECT t.TrainID, t.TrainNumber, t.TrainName, s.DepartureTime, s.ArrivalTime, s.DaysOfOperation, r.SourceStation, r.DestinationStation 
         FROM trains t 
         JOIN schedule s ON t.ScheduleID = s.ScheduleID
         JOIN route r ON t.RouteID = r.RouteID
-        WHERE r.SourceStationID = (SELECT StationID FROM stations WHERE StationName = ?) 
-        AND r.DestinationStationID = (SELECT StationID FROM stations WHERE StationName = ?) 
+        JOIN stations st1 ON r.SourceStation = st1.StationID
+        JOIN stations st2 ON r.DestinationStation = st2.StationID
+        WHERE st1.StationName = ? 
+        AND st2.StationName = ? 
         AND s.DaysOfOperation LIKE CONCAT('%', DAYNAME(?), '%')";
 
 // Prepare the statement
