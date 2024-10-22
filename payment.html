@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
-    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="payment_styles.css">
+    <title>Payment Page</title>
 </head>
 <body>
-    <!-- Header -->
     <header class="main-header">
         <div class="logo">
-            <img src="train.png" alt="Safar Logo" class="logo-img"> 
+            <img src="train.png" alt="Safar Logo" class="logo-img">
             <br>
             <h2>SAFAR</h2>
         </div>
@@ -28,35 +27,82 @@
         </nav>
     </header>
 
-    <div class="payment-section">
+    <div class="payment-container-wrapper">
         <div class="payment-container">
-            <h2 class="centered-heading">Payment Details</h2>
-            <form action="process_payment.php" method="POST">
-                <div class="form-group">
-                    <label for="cardNumber">Card Number</label>
-                    <input type="text" name="cardNumber" id="cardNumber" placeholder="Enter Card Number" required>
-                </div>
-                <div class="form-group">
-                    <label for="expiryDate">Expiry Date</label>
-                    <input type="month" name="expiryDate" id="expiryDate" required>
-                </div>
-                <div class="form-group">
-                    <label for="cvv">CVV</label>
-                    <input type="text" name="cvv" id="cvv" placeholder="Enter CVV" required>
-                </div>
-                <div class="form-group">
-                    <label for="cardHolderName">Cardholder Name</label>
-                    <input type="text" name="cardHolderName" id="cardHolderName" placeholder="Enter Cardholder Name" required>
-                </div>
+            <h2>Payment Details</h2>
+            <form class="payment-form" action="payment.php" method="POST" onsubmit="return validateForm()">
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="">Select a payment method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="net-banking">Net Banking</option>
+                    <option value="upi">UPI</option>
+                </select>
 
-                <!-- Hidden inputs to pass booking details -->
-                <input type="hidden" name="train_id" value="<?php echo $train_id; ?>">
-                <input type="hidden" name="seat_class" value="<?php echo $seat_class; ?>">
-                <input type="hidden" name="total_price" value="<?php echo $total_price; ?>">
+                <div class="card-details">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="Enter your card number" 
+                           required pattern="\d{16}" title="Card number must be 16 digits">
 
-                <button type="submit" class="btn-confirm">Confirm Payment</button>
+                    <label for="card-name">Name on Card</label>
+                    <input type="text" id="card-name" name="card-name" placeholder="Enter the name on card" 
+                           required minlength="2" title="Name must be at least 2 characters long">
+
+                    <div class="expiry-cvv">
+                        <div>
+                            <label for="expiry-date">Expiry Date</label>
+                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" 
+                                   required pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" 
+                                   title="Expiry date must be in MM/YY format">
+                        </div>
+                        <div>
+                            <label for="cvv">CVV</label>
+                            <input type="password" id="cvv" name="cvv" placeholder="CVV" 
+                                   required pattern="\d{3}" title="CVV must be 3 digits">
+                        </div>
+                    </div>
+                </div>
+            
+                <button type="submit" class="pay-btn">Pay Now</button>
             </form>
         </div>
     </div>
+
+    <script>
+        function validateForm() {
+            // Get card number
+            const cardNumber = document.getElementById('card-number').value;
+            if (!/^\d{16}$/.test(cardNumber)) {
+                alert('Please enter a valid 16-digit card number.');
+                return false; // Prevent form submission
+            }
+
+            // Get name on card
+            const cardName = document.getElementById('card-name').value;
+            if (cardName.trim().length < 2) {
+                alert('Name on card must be at least 2 characters long.');
+                return false; // Prevent form submission
+            }
+
+            // Get expiry date
+            const expiryDate = document.getElementById('expiry-date').value;
+            const regex = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+            if (!regex.test(expiryDate)) {
+                alert('Please enter a valid expiry date in MM/YY format.');
+                return false; // Prevent form submission
+            }
+
+            // Get CVV
+            const cvv = document.getElementById('cvv').value;
+            if (!/^\d{3}$/.test(cvv)) {
+                alert('CVV must be 3 digits.');
+                return false; // Prevent form submission
+            }
+
+            // All validations passed
+            return true;
+        }
+    </script>
 </body>
 </html>
