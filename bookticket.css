@@ -220,3 +220,26 @@ input[type="email"], input[type="text"] {
     border: 1px solid #d3d3d3;
     border-radius: 4px;
 }
+
+/* Style the traveller list table */
+#travellerTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#travellerTable th, #travellerTable td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Add some hover effect */
+#travellerTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+#travellerTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}

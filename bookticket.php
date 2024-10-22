@@ -170,10 +170,23 @@ $total_price = $cost_data['BaseFare'] + $cost_data['DynamicFare'] + $cost_data['
                     <button class="btn-add" type="button" onclick="addTraveller()">Add Traveller</button>
                 </div>
                 <br>
-                <div class="traveller-list" id="travellerList">
-                    <h3>Travellers List:</h3>
-                    <!-- Dynamically added travellers will appear here -->
-                </div>
+                <div class="traveller-list">
+                <h3>Travellers List:</h3>
+                <table id="travellerTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Nationality</th>
+                            <th>Berth Preference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamically added travellers will appear here -->
+                    </tbody>
+                </table>
+            </div>
             </div>
 
             <div class="contact-info-box">

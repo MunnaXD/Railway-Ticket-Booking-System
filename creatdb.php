@@ -63,6 +63,7 @@ $sql = "CREATE TABLE IF NOT EXISTS schedule (
     TrainID INT NOT NULL,
     DepartureTime TIME NOT NULL,
     ArrivalTime TIME NOT NULL,
+    FOREIGN KEY (TrainID) REFERENCES trains(TrainID)
 )";
 if (mysqli_query($conn, $sql)) {
     echo "Schedule table created successfully!<br>";
