@@ -74,6 +74,26 @@ $total_price = $cost_data['BaseFare'] + $cost_data['DynamicFare'] + $cost_data['
     <link rel="stylesheet" href="bookticket.css"> <!-- Adjust as needed -->
 </head>
 <body>
+<header class="main-header">
+        <div class="logo">
+            <img src="train.png" alt="Safar Logo" class="logo-img">
+            <br>
+            <h2>SAFAR</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li><a href="logout.php" class="btn-signin">Logout</a></li>
+                <?php else: ?>
+                    <li><a href="login.html" class="btn-signin">Sign In</a></li>
+                    <li><a href="register.html" class="btn-register">Register</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </header>
     <div class="booking-details-section">
         <div class="booking-container">
             <h2 class="centered-heading">Review Your Booking</h2>

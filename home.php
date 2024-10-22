@@ -20,19 +20,14 @@ session_start();
         </div>
         <nav>
             <ul>
-                <li><a href="home.php">Home</a></li>
-                <li><a href="#">Holiday Packages</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="contactus.html">Contact Us</a></li>
-                <li><a href="#">Account Settings</a></li>
-                <li><a href="#">Manage Booking</a></li>
-                
-                <!-- Check if the user is logged in -->
-                <?php if (isset($_SESSION['username'])): ?>
+                <?php if (isset($_SESSION['user_id'])): ?>
                     <li><a href="logout.php" class="btn-signin">Logout</a></li>
                 <?php else: ?>
-                    <li><a href="login.php" class="btn-signin">Sign In</a></li>
-                    <li><a href="register.php" class="btn-register">Register</a></li>
+                    <li><a href="login.html" class="btn-signin">Sign In</a></li>
+                    <li><a href="register.html" class="btn-register">Register</a></li>
                 <?php endif; ?>
             </ul>
         </nav>

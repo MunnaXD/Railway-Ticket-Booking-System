@@ -52,11 +52,8 @@ if ($stmt->error) {
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
-                <li><a href="#">Holiday Packages</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="contactus.html">Contact Us</a></li>
-                <li><a href="#">Account Settings</a></li>
-                <li><a href="#">Manage Booking</a></li>
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li><a href="logout.php" class="btn-signin">Logout</a></li>
                 <?php else: ?>
