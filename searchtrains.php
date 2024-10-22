@@ -96,7 +96,9 @@ if ($stmt->error) {
                     </div>
                 <?php endwhile; ?>
             <?php else: ?>
-                <p>No trains available for this route on the selected date.</p>
+                <div class="no-trains-message">
+                    <p>No trains available for this route on the selected date.</p>
+                </div>
             <?php endif; ?>
         </div>
     </div>
