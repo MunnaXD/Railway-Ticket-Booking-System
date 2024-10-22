@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Details</title>
-    <link rel="stylesheet" href="bookticket.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="bookticket.css">
 </head>
 <body>
     <!-- Header -->
@@ -32,44 +32,55 @@
         <div class="booking-container">
             <h2 class="centered-heading">Review Your Booking</h2>
             <div class="details-section">
+                <!-- Train Details Section -->
                 <div class="train-info-box">
                     <h2 class="centered-heading">Train Details</h2>
                     <div class="train-details">
-                        <p><strong>Train:</strong> Hapa Duronto Express (#12267)</p>
-                        <p><strong>Departure:</strong> 11:00 PM, 11 Dec (Mumbai Central)</p>
-                        <p><strong>Arrival:</strong> 4:50 AM, 12 Dec (Ahmedabad Jn)</p>
-                        <p><strong>Seat:</strong> 3E - A2</p>
+                        <!-- Train details dynamically inserted using PHP -->
+                        <p><strong>Train:</strong> <?php echo $train_name; ?> (#<?php echo $train_id; ?>)</p>
+                        <p><strong>Departure:</strong> <?php echo $departure_time; ?>, <?php echo $departure_date; ?> (<?php echo $departure_station; ?>)</p>
+                        <p><strong>Arrival:</strong> <?php echo $arrival_time; ?>, <?php echo $arrival_date; ?> (<?php echo $arrival_station; ?>)</p>
+                        <p><strong>Seat:</strong> <?php echo $seat_class; ?> - <?php echo $seat_number; ?></p>
                     </div>
                 </div>
+                <!-- Cost Details Section -->
                 <div class="cost-details-box">
                     <h2 class="centered-heading">Cost Details</h2>
-                    <p><strong>Base fare:</strong> ₹758</p>
-                    <p><strong>Dynamic fare:</strong> ₹228</p>
-                    <p><strong>Tax:</strong> ₹45</p>
-                    <p><strong>Reservation charge:</strong> ₹40</p>
-                    <p><strong>Superfast charge:</strong> ₹45</p>
-                    <h3>Total Price per adult: ₹1,125</h3>
-                    <a href='payment.html'>
-                        <button class="btn-pay">Pay & Book Now</button>
-                    </a>
+                    <p><strong>Base fare:</strong> ₹<?php echo $base_fare; ?></p>
+                    <p><strong>Dynamic fare:</strong> ₹<?php echo $dynamic_fare; ?></p>
+                    <p><strong>Tax:</strong> ₹<?php echo $tax; ?></p>
+                    <p><strong>Reservation charge:</strong> ₹<?php echo $reservation_charge; ?></p>
+                    <p><strong>Superfast charge:</strong> ₹<?php echo $superfast_charge; ?></p>
+                    <h3>Total Price per adult: ₹<?php echo $total_price; ?></h3>
+
+                    <!-- Hidden fields to pass data to the backend -->
+                    <form action="payment.php" method="POST">
+                        <input type="hidden" name="train_id" value="<?php echo $train_id; ?>">
+                        <input type="hidden" name="seat_class" value="<?php echo $seat_class; ?>">
+                        <input type="hidden" name="seat_number" value="<?php echo $seat_number; ?>">
+                        <input type="hidden" name="total_price" value="<?php echo $total_price; ?>">
+                        
+                        <button type="submit" class="btn-pay">Pay & Book Now</button>
+                    </form>
                 </div>
             </div>
 
+            <!-- Travellers and Contact Information -->
             <div class="traveller-info-box">
                 <h2>Add Travellers</h2>
                 <br>
                 <div class="traveller-form">
                     <div class="form-group">
                         <label for="travellerName">Name</label>
-                        <input type="text" id="travellerName" placeholder="Enter Traveller Name" required>
+                        <input type="text" name="travellerName" id="travellerName" placeholder="Enter Traveller Name" required>
                     </div>
                     <div class="form-group">
                         <label for="travellerAge">Age (in years)</label>
-                        <input type="number" id="travellerAge" placeholder="Enter Age" required>
+                        <input type="number" name="travellerAge" id="travellerAge" placeholder="Enter Age" required>
                     </div>
                     <div class="form-group">
                         <label for="travellerGender">Gender</label>
-                        <select id="travellerGender">
+                        <select name="travellerGender" id="travellerGender">
                             <option value="">Select</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -78,11 +89,11 @@
                     </div>
                     <div class="form-group">
                         <label for="travellerNationality">Nationality</label>
-                        <input type="text" id="travellerNationality" value="India" readonly>
+                        <input type="text" name="travellerNationality" id="travellerNationality" value="India" readonly>
                     </div>
                     <div class="form-group">
                         <label for="travellerBerth">Berth Preference</label>
-                        <select id="travellerBerth">
+                        <select name="travellerBerth" id="travellerBerth">
                             <option value="No Berth Preference">No Berth Preference</option>
                             <option value="Lower">Lower</option>
                             <option value="Middle">Middle</option>
@@ -91,7 +102,7 @@
                             <option value="Side Upper">Side Upper</option>
                         </select>
                     </div>
-                    <button class="btn-add" onclick="addTraveller()">Add Traveller</button>
+                    <button class="btn-add" type="button" onclick="addTraveller()">Add Traveller</button>
                 </div>
                 <br>
                 <div class="traveller-list" id="travellerList">
@@ -102,14 +113,14 @@
 
             <div class="contact-info-box">
                 <h2>Contact Information</h2>
-                <form>
+                <form method="POST">
                     <div class="form-group">
                         <label for="contactEmail">Email ID</label>
-                        <input type="email" id="contactEmail" placeholder="Enter Email ID" required>
+                        <input type="email" name="contactEmail" id="contactEmail" placeholder="Enter Email ID" required>
                     </div>
                     <div class="form-group">
                         <label for="contactMobile">Mobile Number</label>
-                        <input type="text" id="contactMobile" placeholder="Enter Mobile Number" required>
+                        <input type="text" name="contactMobile" id="contactMobile" placeholder="Enter Mobile Number" required>
                     </div>
                 </form>
             </div>
@@ -118,32 +129,26 @@
 
     <script>
         function addTraveller() {
-            // Get input values
             const name = document.getElementById('travellerName').value;
             const age = document.getElementById('travellerAge').value;
             const gender = document.getElementById('travellerGender').value;
             const nationality = document.getElementById('travellerNationality').value;
             const berth = document.getElementById('travellerBerth').value;
 
-            // Check if fields are filled
-            if (!name || !age || !gender || !nationality) {
+            if (!name || !age || !gender) {
                 alert('Please fill in all the fields.');
                 return;
             }
 
-            // Create a new div for each traveller's details
             const travellerDiv = document.createElement('div');
             travellerDiv.classList.add('traveller-list-item');
             travellerDiv.innerHTML = `<strong>Name:</strong> ${name}, <strong>Age:</strong> ${age}, <strong>Gender:</strong> ${gender}, <strong>Nationality:</strong> ${nationality}, <strong>Berth:</strong> ${berth}`;
-
-            // Append to the traveller list
+            
             document.getElementById('travellerList').appendChild(travellerDiv);
 
-            // Clear input fields after adding
             document.getElementById('travellerName').value = '';
             document.getElementById('travellerAge').value = '';
             document.getElementById('travellerGender').selectedIndex = 0;
-            document.getElementById('travellerNationality').selectedIndex = 0;
             document.getElementById('travellerBerth').selectedIndex = 0;
         }
     </script>

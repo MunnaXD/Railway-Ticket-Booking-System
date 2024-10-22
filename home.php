@@ -50,7 +50,7 @@ session_start();
                 <?php endif; ?>
             </div>
             <div class="form-container">
-                <form action="search_Train.html" method="GET">
+                <form action="searchtrains.php" method="POST">
                     <div class="form-row">
                         <label for="from">From</label>
                         <input type="text" id="from" name="from" placeholder="City or Station" required>
