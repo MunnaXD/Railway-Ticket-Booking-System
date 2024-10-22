@@ -19,6 +19,7 @@ $sql = "CREATE TABLE IF NOT EXISTS users (
     fullname VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
+    country_code VARCHAR(5),
     mobile VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
@@ -107,7 +108,7 @@ if (mysqli_query($conn, $sql)) {
 // SQL query to create the cost table
 $sql = "CREATE TABLE IF NOT EXISTS cost (
     CostID INT AUTO_INCREMENT PRIMARY KEY,
-    TrainID INT NOT NULL,
+    SeatID INT NOT NULL,
     BaseFare DECIMAL(10, 2) NOT NULL,
     DynamicFare DECIMAL(10, 2) NOT NULL,
     Tax DECIMAL(10, 2) NOT NULL,
@@ -115,7 +116,7 @@ $sql = "CREATE TABLE IF NOT EXISTS cost (
     SuperfastCharge DECIMAL(10, 2) NOT NULL,
     TotalPrice DECIMAL(10, 2) NOT NULL,
     ClassType VARCHAR(50) NOT NULL,
-    FOREIGN KEY (TrainID) REFERENCES trains(TrainID)
+    FOREIGN KEY (SeatID) REFERENCES seat(SeatID)
 )";
 if (mysqli_query($conn, $sql)) {
     echo "Cost table created successfully!<br>";

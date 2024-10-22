@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db_connection.php'; // Include your database connection file
+include 'db.php'; // Include your database connection file
 
 // Fetch train details from the database based on selected train
 $train_id = $_SESSION['selected_train_id']; // This should be set earlier in the process

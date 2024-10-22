@@ -44,7 +44,7 @@ session_start();
             <div class="text-content">
                 <!-- Greet the user if logged in -->
                 <?php if (isset($_SESSION['username'])): ?>
-                    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!<br>Where are you going?</h1>
+                    <h1>Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!<br>Where are you going?</h1>
                 <?php else: ?>
                     <h1>Hey there!<br>Where are you going?</h1>
                 <?php endif; ?>
@@ -71,6 +71,42 @@ session_start();
                     </div>
                 </form>
             </div>
+        </div>
+    </section>
+    <section class="destinations-section">
+        <h2>Popular Destinations</h2>
+        <div class="destinations-container">
+            <div class="destination">
+                <img src="kashmir.jpg" alt="Destination 1">
+                <div class="overlay">
+                    <h3>Kashmir</h3>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="delhi.jpg" alt="Destination 2">
+                <div class="overlay">
+                    <h3>Delhi</h3>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="darjeeling.jpg" alt="Destination 3">
+                <div class="overlay">
+                    <h3>Darjeeling</h3>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="assam.jpg" alt="Destination 4">
+                <div class="overlay">
+                    <h3>Assam</h3>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="goa.jpg" alt="Destination 4">
+                <div class="overlay">
+                    <h3>Goa</h3>
+                </div>
+            </div>
+            
         </div>
     </section>
 </body>

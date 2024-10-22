@@ -19,21 +19,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed; /* Fix the header to the top */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 3;
 }
 
 .logo {
-    display: flex; /* Make logo a flex container */
-    align-items: center; /* Center logo items vertically */
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
-    height: 60px; /* Set a height that works well with your header */
-    width: auto;  /* Maintain aspect ratio */
+    height: 60px;
+    width: auto;
 }
 
 .logo h2 {
@@ -41,9 +41,8 @@ body {
     margin-top: -12px;
     margin-left: 5px;
     font-size: 1.5rem;
-    font-family: 'TT Chocolates'; /* Add the font family */
+    font-family: 'TT Chocolates';
 }
-
 
 nav ul {
     list-style: none;
@@ -75,7 +74,6 @@ nav ul li .btn-signin:hover, .btn-register:hover {
     position: relative;
     height: 100vh;
     background: url('train2.jpg') no-repeat center center/cover;
-    
 }
 
 .overlay {
@@ -84,8 +82,7 @@ nav ul li .btn-signin:hover, .btn-register:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 18, 25, 0.6); /* Semi-transparent overlay */
-    ; /* Apply blur effect */
+    background: rgba(0, 18, 25, 0.6);
 }
 
 .content {
@@ -95,16 +92,14 @@ nav ul li .btn-signin:hover, .btn-register:hover {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    padding-left: 50px;
-    padding-right: 50px;
-    backdrop-filter: blur(2px); /* Apply blur effect */
+    padding: 0 50px;
+    backdrop-filter: blur(2px);
 }
 
 .text-content {
     color: #9b7d1a;
-    margin-top: 0px;
+    max-width: 600px;
     text-align: left;
-    max-width: 600px; /* Adjust width for the text block */
 }
 
 h1 {
@@ -131,6 +126,7 @@ form {
 .form-row {
     display: flex;
     flex-direction: column;
+    grid-column: span 2; /* Make sure form elements span the entire width */
 }
 
 label {
@@ -146,23 +142,19 @@ input, select {
     border-radius: 8px;
     background-color: #0A9396;
     color: white;
+    width: 100%;
 }
 
 input[type="text"]::placeholder, input[type="date"]::placeholder {
-    color: #94D2BD; /* Brighter placeholder color for better visibility */
+    color: #94D2BD;
 }
 
 input[type="date"], select {
     padding: 10px;
 }
 
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
 .full-width {
     grid-column: span 2;
-    text-align: center;
 }
 
 .btn {
@@ -174,6 +166,7 @@ input[type="number"]::-webkit-inner-spin-button {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%; /* Make button match the width of inputs */
 }
 
 .btn:hover {
@@ -189,59 +182,58 @@ input[type="number"]::-webkit-inner-spin-button {
 /* Destinations Section Styles */
 .destinations-section {
     padding: 40px 20px;
-    background-color: #E9D8A6; /* Same background color as body */
-    text-align: center; /* Center-align text */
+    background-color: #E9D8A6;
+    text-align: center;
 }
 
 .destinations-section h2 {
-    color: #001219; /* Dark text for section title */
-    margin-bottom: 20px; /* Space below title */
-    font-size: 2rem; /* Adjust font size */
+    color: #001219;
+    margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .destinations-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Space between boxes */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 .destination {
-    position: relative; /* Positioning context for overlay */
-    overflow: hidden; /* Hide overflow */
-    border-radius: 12px; /* Rounded corners */
-    cursor: pointer; /* Pointer on hover */
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
 .destination img {
-    width: 100%; /* Full width of the box */
-    height: 100%; /* Maintain aspect ratio */
-    transition: transform 0.3s ease; /* Animation for scaling */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
 }
 
 .destination:hover img {
-    transform: scale(1.1); /* Scale image on hover */
+    transform: scale(1.1);
 }
 
 .overlay {
-    position: absolute; /* Position overlay */
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center; /* Center align text */
-    align-items: center; /* Center align vertically */
-    opacity: 0; /* Start hidden */
-    transition: opacity 0.3s ease; /* Fade effect */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .destination:hover .overlay {
-    opacity: 1; /* Show overlay on hover */
+    opacity: 1;
 }
 
 .overlay h3 {
-    color: #E9D8A6; /* Text color for overlay */
-    font-size: 1.5rem; /* Adjust font size */
+    color: #E9D8A6;
+    font-size: 1.5rem;
 }
-
