@@ -14,7 +14,9 @@ body {
     justify-content: space-between; /* Space between logo and navigation */
     align-items: center; /* Center items vertically */
     position: fixed; /* Fix the header to the top */
-    width: 100%; /* Full width of the header */
+    top: 0;
+    left: 0;
+    width: 98%; /* Full width of the header */
     z-index: 3; /* Stack above other elements */
 }
 
@@ -45,7 +47,7 @@ nav ul {
 nav ul li a {
     color: #E9D8A6; /* Navigation link color */
     text-decoration: none; /* Remove underline from links */
-    font-size: 1.1rem; /* Font size for navigation links */
+    font-size: 1rem; /* Font size for navigation links */
 }
 
 nav ul li .btn-signin,

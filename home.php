@@ -63,7 +63,7 @@ session_start();
 
                     <div class="form-row">
                         <label for="departure-date">Departure</label>
-                        <input type="date" id="departure-date" name="departure-date" required>
+                        <input type="date" id="departure-date" name="departure_date" required>
                     </div>
 
                     <div class="form-row full-width">
