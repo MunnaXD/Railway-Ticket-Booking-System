@@ -29,27 +29,13 @@ if (mysqli_query($conn, $sql)) {
     echo "Error creating users table: " . mysqli_error($conn);
 }
 
-// SQL query to create the trains table
-$sql = "CREATE TABLE IF NOT EXISTS trains (
-    TrainID INT AUTO_INCREMENT PRIMARY KEY,
-    TrainNumber VARCHAR(10) NOT NULL UNIQUE,
-    TrainName VARCHAR(100) NOT NULL,
-    RouteID INT NOT NULL,
-    ScheduleID INT NOT NULL
-)";
-if (mysqli_query($conn, $sql)) {
-    echo "Train table created successfully!<br>";
-} else {
-    echo "Error creating train table: " . mysqli_error($conn);
-}
-
 // SQL query to create the route table
 $sql = "CREATE TABLE IF NOT EXISTS route (
     RouteID INT AUTO_INCREMENT PRIMARY KEY,
-    SourceStation INT NOT NULL,
-    DestinationStation INT NOT NULL,
+    SourceStation VARCHAR(50) NOT NULL,
+    DestinationStation VARCHAR(50) NOT NULL,
     Distance DECIMAL(10, 2) NOT NULL,
-    Time DECIMAL(5, 2) NOT NULL
+    Time TIME NOT NULL
 )";
 if (mysqli_query($conn, $sql)) {
     echo "Route table created successfully!<br>";
@@ -71,7 +57,25 @@ if (mysqli_query($conn, $sql)) {
     echo "Error creating schedule table: " . mysqli_error($conn);
 }
 
-// SQL query to modify the booking table
+// SQL query to create the trains table
+$sql = "CREATE TABLE IF NOT EXISTS trains (
+    TrainID INT AUTO_INCREMENT PRIMARY KEY,
+    TrainNumber VARCHAR(10) NOT NULL UNIQUE,
+    TrainName VARCHAR(100) NOT NULL,
+    RouteID INT NOT NULL,
+    ScheduleID INT NOT NULL,
+    FOREIGN KEY (RouteID) REFERENCES route(RouteID),
+    FOREIGN KEY (ScheduleID) REFERENCES schedule(ScheduleID)
+)";
+if (mysqli_query($conn, $sql)) {
+    echo "Train table created successfully!<br>";
+} else {
+    echo "Error creating train table: " . mysqli_error($conn);
+}
+
+
+
+// SQL query to create the booking table
 $sql = "CREATE TABLE IF NOT EXISTS booking (
     BookingID INT AUTO_INCREMENT PRIMARY KEY,
     UserID INT NOT NULL,
@@ -85,9 +89,9 @@ $sql = "CREATE TABLE IF NOT EXISTS booking (
     FOREIGN KEY (ScheduleID) REFERENCES schedule(ScheduleID)
 )";
 if (mysqli_query($conn, $sql)) {
-    echo "Booking table modified successfully!<br>";
+    echo "Booking table created successfully!<br>";
 } else {
-    echo "Error modifying booking table: " . mysqli_error($conn);
+    echo "Error creating booking table: " . mysqli_error($conn);
 }
 
 // SQL query to create the seat table
