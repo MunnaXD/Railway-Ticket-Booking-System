@@ -25,7 +25,7 @@ session_start();
                 <li><a href="aboutus.php">About Us</a></li>
                 <li><a href="contactus.php">Contact Us</a></li>
                 <?php if (isset($_SESSION['user_id'])): ?>
-                    <li><a href="logout.php" class="btn-signin">Sign Out</a></li>
+                    <li><a href="logout.php" class="btn-signin">Log Out</a></li>
                 <?php else: ?>
                     <li><a href="login.php" class="btn-signin">Sign In</a></li>
                     <li><a href="register.php" class="btn-register">Register</a></li>
@@ -73,8 +73,8 @@ session_start();
                 <div class="contact-info">
                     <p><strong>Contact Us:</strong></p>
                     <p><i class="fa fa-phone"></i> +91 12345 67890</p>
-                    <p><i class="fa fa-envelope"></i> support@trainreserve.com</p>
-                    <p><i class="fa fa-map-marker"></i> 1234, Railway Street, Mumbai, India</p>
+                    <p><i class="fa fa-envelope"></i> support@safar.com</p>
+                    <p><i class="fa fa-map-marker"></i> 1234, Juhu Beach, Mumbai, India</p>
                     <!-- Embed Google Map -->
                     <iframe src="https://www.google.com/maps/embed?..." width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>

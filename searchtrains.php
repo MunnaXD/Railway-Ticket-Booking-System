@@ -11,7 +11,7 @@ $departure_date = $_POST['departure_date'];  // Date of travel
 $_SESSION['departure_date'] = $departure_date;
 
 // Prepare a query to fetch relevant trains with costs
-$sql = "SELECT DISTINCT t.TrainID, t.TrainName, t.TrainNumber, s.DepartureTime, s.ArrivalTime, 
+$sql = "SELECT t.TrainID, t.TrainName, t.TrainNumber, s.DepartureTime, s.ArrivalTime, 
                r.SourceStation, r.DestinationStation, c.BaseFare, c.ClassType 
         FROM trains t 
         JOIN schedule s ON t.ScheduleID = s.ScheduleID
@@ -20,7 +20,8 @@ $sql = "SELECT DISTINCT t.TrainID, t.TrainName, t.TrainNumber, s.DepartureTime, 
         JOIN cost c ON seat.SeatID = c.SeatID
         WHERE r.SourceStation = ? 
         AND r.DestinationStation = ?
-        AND seat.AvailabilityStatus = 'Available'";  // Check for available seats
+        AND seat.AvailabilityStatus = 'Available'
+        ORDER BY t.TrainID, c.ClassType";  // Order by TrainID and ClassType
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ss', $from, $to);
@@ -66,35 +67,76 @@ if ($stmt->error) {
     <div class="content-container">
         <div class="train-search-container">
             <?php if ($result->num_rows > 0): ?>
-                <?php while($row = $result->fetch_assoc()): ?>
-                    <div class="train-card">
-                        <div class="train-info">
-                            <h2><?php echo htmlspecialchars($row['TrainName']); ?></h2>
-                            <p>#<?php echo htmlspecialchars($row['TrainNumber']); ?> | Departs on: <span>S M T W T F S</span></p>
-                            <div class="train-details">
-                                <div class="time">
-                                    <p><?php echo htmlspecialchars($row['DepartureTime']); ?>, <?php echo htmlspecialchars($departure_date); ?></p>
-                                    <p><?php echo htmlspecialchars($row['SourceStation']); ?></p>
-                                </div>
-                                <div class="duration">
-                                    <p>Duration: Approx. 5 hrs 50 mins</p>
-                                    <a href="#" class="view-route">View route</a>
-                                </div>
-                                <div class="time">
-                                    <p><?php echo htmlspecialchars($row['ArrivalTime']); ?>, <?php echo htmlspecialchars($departure_date); ?></p>
-                                    <p><?php echo htmlspecialchars($row['DestinationStation']); ?></p>
+                <?php 
+                $currentTrainID = null;
+                $currentTrainName = null;
+                $currentTrainNumber = null;
+                $trainClasses = []; // Array to hold classes for a train
+
+                while($row = $result->fetch_assoc()): 
+                    // Check if this is a new train or the same as the previous
+                    if ($currentTrainID !== $row['TrainID']) {
+                        // If it's a new train, display the previous train's information (if any)
+                        if ($currentTrainID !== null) {
+                            // Display classes and booking options for the last train
+                            foreach ($trainClasses as $class) {
+                                echo "<div class='class-option'>
+                                    <p>Class: " . htmlspecialchars($class['ClassType']) . "</p>
+                                    <p>Fare: ₹ " . htmlspecialchars($class['BaseFare']) . "</p>
+                                    <button onclick=\"redirectToBooking('{$currentTrainID}', '" . htmlspecialchars($class['ClassType']) . "', '" . htmlspecialchars($class['BaseFare']) . "')\">Book Now</button>
+                                </div>";
+                            }
+                            echo "</div>"; // Close the booking-options div
+                        }
+
+                        // Reset and start a new train's information
+                        $currentTrainID = $row['TrainID'];
+                        $currentTrainName = $row['TrainName'];
+                        $currentTrainNumber = $row['TrainNumber'];
+                        $trainClasses = []; // Clear the previous train's classes
+
+                        // Display the new train card
+                        echo "<div class='train-card'>
+                            <div class='train-info'>
+                                <h2>" . htmlspecialchars($currentTrainName) . "</h2>
+                                <p>#" . htmlspecialchars($currentTrainNumber) . " | Departs on: <span>S M T W T F S</span></p>
+                                <div class='train-details'>
+                                    <div class='time'>
+                                        <p>" . htmlspecialchars($row['DepartureTime']) . ", " . htmlspecialchars($departure_date) . "</p>
+                                        <p>" . htmlspecialchars($row['SourceStation']) . "</p>
+                                    </div>
+                                    <div class='duration'>
+                                        <p>Duration: Approx. 5 hrs 50 mins</p>
+                                        
+                                    </div>
+                                    <div class='time'>
+                                        <p>" . htmlspecialchars($row['ArrivalTime']) . ", " . htmlspecialchars($departure_date) . "</p>
+                                        <p>" . htmlspecialchars($row['DestinationStation']) . "</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="booking-options">
-                            <div class="class-option">
-                                <p>Class: <?php echo htmlspecialchars($row['ClassType']); ?></p>
-                                <p>Fare: ₹ <?php echo htmlspecialchars($row['BaseFare']); ?></p>
-                                <button onclick="redirectToBooking('<?php echo htmlspecialchars($row['TrainID']); ?>', '<?php echo htmlspecialchars($row['ClassType']); ?>', '<?php echo htmlspecialchars($row['BaseFare']); ?>')">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                <?php endwhile; ?>
+                            <div class='booking-options'>";
+                    }
+
+                    // Add the current row's class information to the array
+                    $trainClasses[] = [
+                        'ClassType' => $row['ClassType'],
+                        'BaseFare' => $row['BaseFare']
+                    ];
+                endwhile;
+
+                // Display the last train's classes (if any)
+                if ($currentTrainID !== null) {
+                    foreach ($trainClasses as $class) {
+                        echo "<div class='class-option'>
+                            <p>Class: " . htmlspecialchars($class['ClassType']) . "</p>
+                            <p>Fare: ₹ " . htmlspecialchars($class['BaseFare']) . "</p>
+                            <button onclick=\"redirectToBooking('{$currentTrainID}', '" . htmlspecialchars($class['ClassType']) . "', '" . htmlspecialchars($class['BaseFare']) . "')\">Book Now</button>
+                        </div>";
+                    }
+                    echo "</div>"; // Close the booking-options div
+                }
+                ?>
             <?php else: ?>
                 <div class="no-trains-message">
                     <p>No trains available for this route on the selected date.</p>

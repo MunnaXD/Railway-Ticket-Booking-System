@@ -17,7 +17,7 @@ body {
     position: fixed; /* Fixed positioning for the header */
     top: 0; /* Stick to the top */
     left: 0; /* Align to the left */
-    width: 100%; /* Full width of the header */
+    width: 98%; /* Full width of the header */
     height: 50px; /* Set a consistent height for the header */
     z-index: 3; /* Stack above other elements */
 }
@@ -34,7 +34,7 @@ body {
 
 .logo h2 {
     color: #E9D8A6; /* Logo text color */
-    margin-top: 5px; /* Adjusts logo positioning */
+    margin-top: 10px; /* Adjusts logo positioning */
     margin-left: 5px; /* Spacing between logo image and text */
     font-size: 1.5rem; /* Logo font size */
     font-family: 'TT Chocolates'; /* Font style for the logo */

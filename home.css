@@ -97,7 +97,8 @@ nav ul li .btn-signin:hover, .btn-register:hover {
 }
 
 .text-content {
-    color: #9b7d1a;
+    color: #E9D8A6;
+    filter: drop-shadow(2px 4px 6px #001219);
     max-width: 600px;
     text-align: left;
 }

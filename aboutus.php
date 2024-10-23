@@ -38,7 +38,10 @@ session_start();
     <section class="about-us-section">
         <div class="container">
             <h1>About Us</h1>
-            <p>Welcome to Safar! We provide a seamless online railway ticket booking experience for travelers across India. Our platform is user-friendly and designed to offer quick, hassle-free train bookings. Whether you're looking for holiday packages, train schedules, or managing your account, we have it all under one roof.</p>
+            <p>Safar-Toh Shuru Karein?<br>
+            At Safar, we make every journey easy and exciting. Our platform simplifies train travel, offering a user-friendly way to find trains, book tickets, and discover new destinations. Whether you’re reconnecting with loved ones or exploring a new place, we’re here to ensure a smooth experience.
+
+            Why wait? TOH SHURU Karein—start your Safar today and let us be your travel companion as you explore the incredible diversity of India.</p>
         </div>
     </section>
 
@@ -53,7 +56,6 @@ session_start();
                         <img src="aman.jpg" alt="Aman Babbar">
                     </div>
                     <h3>Aman Babbar</h3>
-                    <p>MBA Tech IT - I003</p>
                     <div class="social-icons">
                         <a href="https://www.linkedin.com/in/aman-babbar-b60020250" target="_blank" class="social-icon">
                             <i class="fab fa-linkedin"></i>
@@ -72,15 +74,14 @@ session_start();
                         <img src="charvi.jpg" alt="Charvi Jain">
                     </div>
                     <h3>Charvi Jain</h3>
-                    <p>MBA Tech IT - I013</p>
                     <div class="social-icons">
-                        <a href="https://linkedin.com/in/charvijain" target="_blank" class="social-icon">
+                        <a href="https://www.linkedin.com/in/charvee-jain-88247a250/" target="_blank" class="social-icon">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="mailto:charvi@example.com" target="_blank" class="social-icon">
+                        <a href="mailto:charvi.jain60@nmims.in" target="_blank" class="social-icon">
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="https://instagram.com/charvijain" target="_blank" class="social-icon">
+                        <a href="https://www.instagram.com/charveejainn/" target="_blank" class="social-icon">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
@@ -91,15 +92,14 @@ session_start();
                         <img src="harini.jpg" alt="Harini Suryanarayanan">
                     </div>
                     <h3>Harini Suryanarayanan</h3>
-                    <p>MBA Tech IT - I019</p>
                     <div class="social-icons">
-                        <a href="https://linkedin.com/in/harinisuryanarayanan" target="_blank" class="social-icon">
+                        <a href="https://www.linkedin.com/in/harini-suryanarayanan/" target="_blank" class="social-icon">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="mailto:harini@example.com" target="_blank" class="social-icon">
+                        <a href="mailto:harini.suryanarayanan04@gmail.com" target="_blank" class="social-icon">
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="https://instagram.com/harinisuryanarayanan" target="_blank" class="social-icon">
+                        <a href="https://www.instagram.com/harini_1008_/?igshid=NzZlODBkYWE4Ng%3D%3D" target="_blank" class="social-icon">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>

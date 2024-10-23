@@ -8,13 +8,22 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safar!</title>
-    <link href="https://fonts.googleapis.com/css2?family=TT+Chocolates&display=swap" rel="stylesheet"> <!-- Import the font -->
+    <link href="https://fonts.googleapis.com/css2?family=TT+Chocolates&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
+    <script>
+        // Function to set today's date as the minimum value for the date input
+        function setMinDate() {
+            const today = new Date().toISOString().split('T')[0]; // Get today's date in 'YYYY-MM-DD' format
+            document.getElementById('departure-date').setAttribute('min', today);
+        }
+
+        window.onload = setMinDate; // Set the min date when the page loads
+    </script>
 </head>
 <body>
     <header class="main-header">
         <div class="logo">
-            <img src="train.png" alt="Safar Logo" class="logo-img"> <!-- Add your logo image here -->
+            <img src="train.png" alt="Safar Logo" class="logo-img">
             <br>
             <h2>SAFAR</h2>
         </div>
@@ -37,7 +46,6 @@ session_start();
         <div class="overlay"></div>
         <div class="content">
             <div class="text-content">
-                <!-- Greet the user if logged in -->
                 <?php if (isset($_SESSION['username'])): ?>
                     <h1>Hey, <?php echo htmlspecialchars($_SESSION['username']); ?>!<br>Where are you going?</h1>
                 <?php else: ?>
@@ -101,7 +109,6 @@ session_start();
                     <h3>Goa</h3>
                 </div>
             </div>
-            
         </div>
     </section>
 </body>
