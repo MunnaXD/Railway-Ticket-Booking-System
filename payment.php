@@ -2,41 +2,60 @@
 session_start();
 include 'db.php'; // Include your database connection
 
-// Check if user is logged in and BookingID is set
-if (!isset($_SESSION['user_id'], $_POST['booking_id'])) {
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
     echo "Unauthorized access.";
     exit();
 }
 
 $user_id = $_SESSION['user_id'];
-$booking_id = $_POST['booking_id'];
-$payment_method = $_POST['payment-method'];
-$card_number = $_POST['card-number'];
-$card_name = $_POST['card-name'];
-$expiry_date = $_POST['expiry-date'];
-$cvv = $_POST['cvv'];
 
-// Process the payment here
-$payment_success = true; // Assume payment was successful
-
-if ($payment_success) {
-    // Update booking status in the database if needed
-    $sql = "UPDATE booking SET BookingStatus = 'Confirmed' WHERE BookingID = ? AND UserID = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $booking_id, $user_id);
-    
-    if ($stmt->execute()) {
-        // Redirect to confirmation page
-        header("Location: confirmation.php?booking_id=$booking_id");
+// Check if this is a POST request to process the payment
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Ensure the booking_id is set in the POST request
+    if (!isset($_POST['booking_id'])) {
+        echo "Unauthorized access.";
         exit();
-    } else {
-        echo "Error updating booking status. Please try again.";
     }
-} else {
-    echo "Payment failed. Please try again.";
+
+    $booking_id = $_POST['booking_id'];
+    $payment_method = $_POST['payment-method'];
+    $card_number = $_POST['card-number'];
+    $card_name = $_POST['card-name'];
+    $expiry_date = $_POST['expiry-date'];
+    $cvv = $_POST['cvv'];
+
+    // Process the payment (assuming payment is successful for now)
+    $payment_success = true;
+
+    if ($payment_success) {
+        // Update booking status in the database
+        $sql = "UPDATE booking SET BookingStatus = 'Confirmed' WHERE BookingID = ? AND UserID = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $booking_id, $user_id);
+        
+        if ($stmt->execute()) {
+            // Redirect to the confirmation page
+            header("Location: confirmation.php?booking_id=$booking_id");
+            exit();
+        } else {
+            echo "Error updating booking status. Please try again.";
+        }
+    } else {
+        echo "Payment failed. Please try again.";
+    }
+
+    $conn->close();
+    exit();
 }
 
-$conn->close();
+// Check if booking_id is set via GET to display the payment form
+if (isset($_GET['booking_id'])) {
+    $booking_id = $_GET['booking_id'];
+} else {
+    echo "Unauthorized access.";
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,8 +89,9 @@ $conn->close();
     <div class="payment-container-wrapper">
         <div class="payment-container">
             <h2>Payment Details</h2>
-            <form class="payment-form" action="confirmation.php" method="POST" onsubmit="return validateForm()">
-                <input type="hidden" name="booking_id" value="<?php echo $_GET['booking_id']; ?>"> <!-- Include Booking ID -->
+            <form class="payment-form" action="payment.php" method="POST" onsubmit="return validateForm()">
+                <!-- Include Booking ID as a hidden input to pass it via POST -->
+                <input type="hidden" name="booking_id" value="<?php echo htmlspecialchars($booking_id); ?>">
 
                 <label for="payment-method">Payment Method</label>
                 <select id="payment-method" name="payment-method" required>
@@ -148,6 +168,3 @@ $conn->close();
     </script>
 </body>
 </html>
-<?php
-$conn->close();
-?>

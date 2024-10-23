@@ -103,7 +103,7 @@ nav ul li .btn-register:hover {
 
 .logo-container img {
     margin-top: 100px;
-    margin-left: 0px;
+    margin-left: 100px;
     width: 100%; /* Full width for image */
     height: auto; /* Maintain aspect ratio */
 }

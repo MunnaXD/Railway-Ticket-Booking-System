@@ -19,17 +19,19 @@ if (isset($_GET['booking_id'])) {
 }
 
 // Retrieve booking and related details
-$sql = "SELECT b.BookingID, b.TotalAmount, s.DepartureTime, s.ArrivalTime, r.SourceStation, r.DestinationStation,
-        t.TrainName, t.TrainNumber, tr.TravellerName, se.SeatID, tr.Gender, u.Email
+$sql = "SELECT b.BookingID, b.TotalAmount, s.DepartureTime, s.ArrivalTime, 
+        r.SourceStation, r.DestinationStation, t.TrainName, t.TrainNumber, 
+        tr.TravellerName, tr.Gender, u.Email, se.SeatID, u.username
         FROM booking b
-        JOIN seat se ON b.BookingID = se.SeatID
+        JOIN seat se ON b.TrainID = se.TrainID
         JOIN schedule s ON b.ScheduleID = s.ScheduleID
-        JOIN route r ON s.RouteID = r.RouteID
         JOIN trains t ON b.TrainID = t.TrainID
+        JOIN route r ON t.RouteID = r.RouteID
         JOIN travellers tr ON tr.BookingID = b.BookingID
-        JOIN users u ON b.UserID = u.UserID
+        JOIN users u ON b.UserID = u.id
         WHERE b.BookingID = ? AND b.UserID = ?";
 $stmt = $conn->prepare($sql);
+
 $stmt->bind_param("ii", $booking_id, $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -44,6 +46,7 @@ if ($result->num_rows > 0) {
     $source_station = htmlspecialchars($booking_data['SourceStation']);
     $destination_station = htmlspecialchars($booking_data['DestinationStation']);
     $traveller_name = htmlspecialchars($booking_data['TravellerName']);
+    $username=htmlspecialchars($booking_data['username']);
     $email = htmlspecialchars($booking_data['Email']);
     $seat = htmlspecialchars($booking_data['SeatID']);
     $total_amount = htmlspecialchars($booking_data['TotalAmount']); // Include total amount
@@ -76,8 +79,7 @@ $conn->close();
                 <li><a href="home.html">Home</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="contactus.html">Contact Us</a></li>
-                <li><a href="#">Manage Booking</a></li>
-                <li><a href="logout.php" class="btn-signin">Sign Out</a></li>
+                <li><a href="logout.php" class="btn-signin">Log Out</a></li>
             </ul>
         </nav>
     </header>
@@ -120,7 +122,7 @@ $conn->close();
 
                 <div class="passenger-info">
                     <div class="passenger-column">
-                        <p><strong>Name:</strong> <?php echo $traveller_name; ?></p>
+                        <p><strong>Name:</strong> <?php echo $username; ?></p>
                         <p><strong>Email:</strong> <?php echo $email; ?></p>
                     </div>
                     <div class="passenger-column">
@@ -156,7 +158,7 @@ $conn->close();
             doc.text("Email: <?php echo $email; ?>", 20, 90);
             doc.text("Booking Code: <?php echo $booking_id; ?>", 20, 100);
             doc.text("Seat: <?php echo $seat; ?>", 20, 110);
-            doc.text("Total Amount: ₹<?php echo $total_amount; ?>", 20, 120); // Display total amount
+            doc.text("Total Amount: ₹<?php echo $total_amount; ?>", 20, 120);
     
             doc.text("Please show e-tickets and IDs during check-in.", 20, 130);
             doc.text("Arrive at least 30 minutes before departure.", 20, 140);
